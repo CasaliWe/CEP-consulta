@@ -1,6 +1,6 @@
 async function consultarDados(){
     const cep = document.getElementById('cep').value
-    const url = `https://viacep.com.br/ws/${cep}/json/`
+    const url = `viacep.com.br/ws/${cep}/json/`
     const dados = await fetch(url)
     const endereco = await dados.json()
     respostaDados(endereco)
