@@ -1,9 +1,24 @@
-async function consultarDados(){
+
+function consultarDados(){
     const cep = document.getElementById('cep').value
-    const url = `http://viacep.com.br/ws/${cep}/json/`
-    const dados = await fetch(url)
-    const endereco = await dados.json()
-    respostaDados(endereco)
+    fetch(`http://viacep.com.br/ws/${cep}/json/`)
+    .then(Response => {
+        return Response.json()
+    })
+    .then(data => {
+        respostaDados(data)
+    })
+    .catch(Error => {
+        respostaErro()
+    })
+    
+    }
+    
+
+function respostaErro(){
+    document.getElementById('rua').textContent = 'ERRO! Digite seu CEP corretamente.'
+    document.getElementById('rua').style.cssText = `display: block;`
+    document.getElementById('nova-pesquisa').style.cssText = `display: block;`
 }
 
 
