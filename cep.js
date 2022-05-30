@@ -51,5 +51,5 @@ function fadee(){
     }, 1300);
 }
 
-main.addEventListener('load', fadee())
+main.addEventListener('load', fadee());
 
